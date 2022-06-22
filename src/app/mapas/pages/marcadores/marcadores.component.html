@@ -3,7 +3,7 @@
         (click)="agregarMarcador()" >+ Add Marker</li>
     <li *ngFor="let maker of makers; let i = index"
         class="list-group-item"
-        (click)="irMarcador()"
+        (click)="irMarcador(maker)"
         [ngStyle]="{
             'background-color': maker.color
         }"> 

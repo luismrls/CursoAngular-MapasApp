@@ -76,8 +76,10 @@ export class MarcadoresComponent implements AfterViewInit {
     this.makers.push({color, marker})
   }
 
-  irMarcador() {
-    // this.mapa.flyTo
+  irMarcador(objMarker: MakerColor) {
+    this.mapa.flyTo({
+      center: objMarker.marker.getLngLat()
+    })
 
   }
 
