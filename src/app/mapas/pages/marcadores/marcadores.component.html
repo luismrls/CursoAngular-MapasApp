@@ -4,6 +4,7 @@
     <li *ngFor="let maker of makers; let i = index"
         class="list-group-item"
         (click)="irMarcador(maker)"
+        (dblclick)="borrarMarcador(i)"
         [ngStyle]="{
             'background-color': maker.color
         }"> 

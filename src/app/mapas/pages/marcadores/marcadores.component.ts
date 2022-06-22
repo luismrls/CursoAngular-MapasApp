@@ -79,6 +79,10 @@ export class MarcadoresComponent implements AfterViewInit {
     this.makers.push({color, marker})
 
     this.guardarMarcadorLocalStorage()
+
+    marker.on('dragend', () => {
+      this.guardarMarcadorLocalStorage
+    })
   }
 
   irMarcador(objMarker: MarkerColor) {
@@ -128,8 +132,18 @@ export class MarcadoresComponent implements AfterViewInit {
         marker: newMarker,
         color: m.color
       })
+
+      newMarker.on('dragend', () => {
+        this.guardarMarcadorLocalStorage
+      })
       
     })
   }
 
+
+  borrarMarcador( indice: number ) {
+    this.makers[indice].marker?.remove()
+    this.makers.splice(indice, 1);
+    this.guardarMarcadorLocalStorage()
+  }
 }
